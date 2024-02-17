@@ -1,0 +1,94 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    background-color: #EDEDED;
+    font-family: "Source Sans 3", sans-serif;
+    line-height: 0.2;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+/* a container for the entire app */
+.whole-app { 
+    display: flex;
+    flex-direction: column;
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* the container for logo, user avatar */
+.app-header-container {
+    border-bottom: 1px solid #C6C6C6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 0 15px;
+    margin: 0;
+    background-color: #FFFFFF;
+    height: 67px;
+}
+
+.logo-image {
+    height: 90%;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    height: 34px;
+    width: 34px;
+}
+
+/* the container for an entire post instance */
+.post {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    margin-bottom: 25px;
+    border: none;
+}
+
+/* the header of a post including poster avatar, name, location */
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+/*container for poster name & location */
+.user-info-container {
+    padding-left: 7px;
+}
+
+/* the footer of a post */
+.post-footer {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-between;
+    height: 23px;
+    width: 82px;
+    margin-bottom: 3px;
+}
+
+.icon {
+    height: 100%;
+    fill: pink;
+}
+
+.icon:hover {
+    filter: drop-shadow(0px 0px 2px);
+}
+
+.comment {
+    line-height: 1.1;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
