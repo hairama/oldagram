@@ -105,3 +105,19 @@ html, body {
     margin-top: 67px;
     padding: 0;
 }
+
+.app-footer-container {
+    border-bottom: 2px solid #C6C6C6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0px;
+    min-height: 67px;
+    width: 100%;
+    max-width: 375px;
+    z-index: 1;
+}
