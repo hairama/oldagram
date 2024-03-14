@@ -91,9 +91,9 @@ html, body {
     fill: pink;
 }
 
-.icon:hover {
+/* .icon:hover {
     filter: drop-shadow(0px 0px 2px);
-}
+} */
 
 .comment {
     line-height: 1.1;
