@@ -29,7 +29,22 @@ const posts = [
 ]
 
 const newPost = document.getElementById("post-holder")
+const addPostBtn = document.getElementById("add-post-btn")
+const fileInput = document.getElementById("file-input")
+
 newPost.innerHTML += `<div class="floating-header-space"></div>`
+
+addPostBtn.addEventListener("click", function(){
+    fileInput.click()
+})
+
+// fileInput.addEventListener('change', function() {
+//     // Display the selected file name (optional)
+//     const selectedFileName = document.getElementById('selectedFileName');
+//     selectedFileName.textContent = this.files[0].name;
+    
+//     // Here you can perform further actions with the selected file, like uploading it to a server or displaying it on the page
+// })
 
 function displayFeed(postData) {
     
