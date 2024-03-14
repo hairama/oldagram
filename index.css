@@ -35,6 +35,7 @@ html, body {
     height: 67px;
     width: 100%;
     max-width: 375px;
+    z-index: 1;
 }
 
 .logo-image {
