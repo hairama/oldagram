@@ -29,6 +29,7 @@ const posts = [
 ]
 
 const newPost = document.getElementById("post-holder")
+newPost.innerHTML += `<div class="floating-header-space"></div>`
 
 function displayFeed(postData) {
     
@@ -44,27 +45,29 @@ function displayFeed(postData) {
     
         newPost.innerHTML += 
         `
-         <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
-                <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
-                    <img class="user-avatar" src="${avatar}"> 
-                    <div class="user-info-container">
-                        <p class="bold-text">${name}</p>
-                        <p>${location}</p>
-                    </div>  
-                </div>
-                <img src="${post}">
-                <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
-                    <div class="icon-container">
-                        <img class="icon" ${like_id} src="images/icon-heart.png">
-                        <img class="icon" src="images/icon-comment.png">
-                        <img class="icon" src="images/icon-dm.png">
+        <div> 
+            <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
+                    <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
+                        <img class="user-avatar" src="${avatar}"> 
+                        <div class="user-info-container">
+                            <p class="bold-text">${name}</p>
+                            <p>${location}</p>
+                        </div>  
                     </div>
-                    <p class="bold-text">${likes} likes</p>
-                    <div>
-                        <p class="comment"><span class="bold-text">${username}</span> ${comment}</p>
-                    </div>
-                </div> <!-- END OF POST-FOOTER -->
-            </section> <!--END OF POST SECTION -->                   
+                    <img src="${post}">
+                    <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
+                        <div class="icon-container">
+                            <img class="icon" ${like_id} src="images/icon-heart.png">
+                            <img class="icon" src="images/icon-comment.png">
+                            <img class="icon" src="images/icon-dm.png">
+                        </div>
+                        <p class="bold-text">${likes} likes</p>
+                        <div>
+                            <p class="comment"><span class="bold-text">${username}</span> ${comment}</p>
+                        </div>
+                    </div> <!-- END OF POST-FOOTER -->
+                </section> <!--END OF POST SECTION -->  
+        </div>
         `
     let liker = document.getElementById(`like${i}`)
     liker.addEventListener("click", function(){
