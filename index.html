@@ -15,23 +15,31 @@
 
     </head>
     <body>
-        <section class="whole-app"> <!-- CONTAINS ALL VISIBLE UI -->
-            <div class="app-header-container"> <!-- CONTAINS THE APP HEADER -->
-                <img class="logo-image" src="images/JiffyPicText.png">
-                <img class="user-avatar" src="/images/tree-mask.jpeg">
-            </div>
-            <div id="post-holder">
-            </div> <!-- END OF POST HOLDER -->        
-                <div class="app-footer-container"> 
-                    
-                    <img img class="icon" id="add-post-btn" src="/images/icon-add.png">
+        <main>
+            <section class="whole-app"> <!-- CONTAINS ALL VISIBLE UI -->
+                <div class="app-header-container"> <!-- CONTAINS THE APP HEADER -->
+                    <img class="logo-image" src="images/JiffyPicText.png">
+                    <img class="user-avatar" src="/images/tree-mask.jpeg">
                 </div>
-            <section> <!-- END OF WHOLE APP CONTAINER -->
-                <input type="file" 
-                accept="image/*"
-                id="file-input"
-                alt="Submit"
-                class="input-btn">
+                <div id="post-holder">
+                </div> <!-- END OF POST HOLDER -->        
+                    <div class="app-footer-container"> 
+                        
+                        <img img class="icon" id="add-post-btn" src="/images/icon-add.png">
+                    </div>
+                <section> <!-- END OF WHOLE APP CONTAINER -->
+                    <input type="file" 
+                    accept="image/*"
+                    id="file-input"
+                    alt="Submit"
+                    class="input-btn">
+        </main>
+        <div id="overlay" class="overlay"></div>    
+        <div class="comments-modal" id="comments-modal">
+                <button class="comments-modal-close-btn" id="comments-modal-close-btn">X</button>
+                <div id="comments-modal-inner"></div>
+            </div>
+            
         <script src="index.js" type="module"></script>
     </body>
 </html>
