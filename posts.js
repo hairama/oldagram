@@ -11,12 +11,12 @@ export const posts = [
         replies: [
             {
                 handle: `@StackOverflower ☣️`,
-                profilePic: `images/overflow.png`,
+                profilePic: `images/avatar-vangogh.jpg`,
                 replyText: `No. `,
             },
             {
                 handle: `@StackOverflower ☣️`,
-                profilePic: `images/overflow.png`,
+                profilePic: `images/avatar-vangogh.jpg`,
                 replyText: `Obviosuly not.`,
             }
         ],
@@ -59,22 +59,67 @@ export const posts = [
         replies: [
             {
                 handle: `@StackOverflower ☣️`,
-                profilePic: `images/overflow.png`,
+                profilePic: `images/avatar-vangogh.jpg`,
                 replyText: `Go.`,
             },
             {
                 handle: `@StackOverflower ☣️`,
-                profilePic: `images/overflow.png`,
+                profilePic: `images/avatar-vangogh.jpg`,
                 replyText: `get a job`,
             },
             {
                 handle: `@StackOverflower ☣️`,
-                profilePic: `images/overflow.png`,
+                profilePic: `images/avatar-vangogh.jpg`,
                 replyText: `Obviosuly get McDonald's.`,
             },
             {
                 handle: `@StackOverflower ☣️`,
-                profilePic: `images/overflow.png`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `Go.`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `get a job`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `Obviosuly get McDonald's.`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `Go.`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `get a job`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `Obviosuly get McDonald's.`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `Go.`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `get a job`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
+                replyText: `Obviosuly get McDonald's.`,
+            },
+            {
+                handle: `@StackOverflower ☣️`,
+                profilePic: `images/avatar-vangogh.jpg`,
                 replyText: `No. Go.`,
             }
         ],
