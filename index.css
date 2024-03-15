@@ -5,6 +5,7 @@ html, body {
     background-color: #EDEDED;
     font-family: "Source Sans 3", sans-serif;
     line-height: 0.2;
+    user-select: none;
 }
 
 .bold-text {
