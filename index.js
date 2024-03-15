@@ -25,6 +25,13 @@ document.addEventListener("click", function(e) {
 
 })
 
+document.addEventListener("dblclick", function(e) {
+    if(e.target.dataset.photo) {
+        handleLikeClick(e.target.dataset.photo)
+        console.log(e.target.dataset.photo)
+    }
+})
+
 // fileInput.addEventListener('change', function() {
 //     // Display the selected file name (optional)
 //     const selectedFileName = document.getElementById('selectedFileName');
@@ -56,7 +63,7 @@ function getFeed(postData) {
                                     <p>${location}</p>
                                  </div>  
                             </div>
-                            <img src="${post}">
+                            <img src="${post}" data-photo="${uuid}">
                             <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
                                 <div class="icon-container">
                                     <img class="icon" data-like="${uuid}" src="${likeImgSrc}" >
