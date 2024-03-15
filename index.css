@@ -101,7 +101,7 @@ html, body {
     margin-bottom: 0px;
 }
 
-.floating-header-space {
+.floating-header-footer-spacing {
     margin-top: 67px;
     padding: 0;
 }
@@ -124,4 +124,9 @@ html, body {
 
 .input-btn {
     opacity: 0%;
+}
+
+.liked{
+    filter: invert(10%) sepia(98%) saturate(7004%) hue-rotate(1deg) brightness(97%) contrast(108%);
+    color: red;
 }

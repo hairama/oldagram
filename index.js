@@ -1,41 +1,28 @@
-const posts = [
-    {
-        name: "Vincent van Gogh",
-        username: "vincey1853",
-        location: "Zundert, Netherlands",
-        avatar: "images/avatar-vangogh.jpg",
-        post: "images/post-vangogh.jpg",
-        comment: "just took a few mushrooms lol",
-        likes: 21
-    },
-    {
-        name: "Gustave Courbet",
-        username: "gus1819",
-        location: "Ornans, France",
-        avatar: "images/avatar-courbet.jpg",
-        post: "images/post-courbet.jpg",
-        comment: "i'm feelin a bit stressed tbh",
-        likes: 4
-    },
-        {
-        name: "Joseph Ducreux",
-        username: "jd1735",
-        location: "Paris, France",
-        avatar: "images/avatar-ducreux.jpg",
-        post: "images/post-ducreux.jpg",
-        comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-        likes: 152
-    }
-]
+import { posts } from "/posts.js"
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 
-const newPost = document.getElementById("post-holder")
+const postFeed = document.getElementById("post-holder")
 const addPostBtn = document.getElementById("add-post-btn")
 const fileInput = document.getElementById("file-input")
 
-newPost.innerHTML += `<div class="floating-header-space"></div>`
+
 
 addPostBtn.addEventListener("click", function(){
     fileInput.click()
+})
+
+document.addEventListener("click", function(e) {
+    
+    if(e.target.dataset.like){
+        handleLikeClick(e.target.dataset.like)
+    }
+    if(e.target.dataset.comment){
+        console.log(e.target.dataset.comment)
+    }
+    if(e.target.dataset.dm){
+        console.log(e.target.dataset.dm)
+    }
+
 })
 
 // fileInput.addEventListener('change', function() {
@@ -46,78 +33,61 @@ addPostBtn.addEventListener("click", function(){
 //     // Here you can perform further actions with the selected file, like uploading it to a server or displaying it on the page
 // })
 
-function displayFeed(postData) {
+function getFeed(postData) {
     
-    for (let i = 0; i < postData.length; i++) {
-        let name = postData[i].name
-        let username = postData[i].username
-        let location = postData[i].location
-        let avatar = postData[i].avatar
-        let post = postData[i].post
-        let comment = postData[i].comment
-        let likes = postData[i].likes 
-        let like_id = `id="like${i}"`
+    const postFeedHTML = []
+    postFeedHTML.push(`<div class="floating-header-footer-spacing"></div>`)
     
-        newPost.innerHTML += 
-        `
-        <div> 
-            <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
-                    <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
-                        <img class="user-avatar" src="${avatar}"> 
-                        <div class="user-info-container">
-                            <p class="bold-text">${name}</p>
-                            <p>${location}</p>
-                        </div>  
-                    </div>
-                    <img src="${post}">
-                    <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
-                        <div class="icon-container">
-                            <img class="icon" ${like_id} src="images/icon-heart.png">
-                            <img class="icon" src="images/icon-comment.png">
-                            <img class="icon" src="images/icon-dm.png">
-                        </div>
-                        <p class="bold-text">${likes} likes</p>
-                        <div>
-                            <p class="comment"><span class="bold-text">${username}</span> ${comment}</p>
-                        </div>
-                    </div> <!-- END OF POST-FOOTER -->
-                </section> <!--END OF POST SECTION -->  
-        </div>
-        `
-    let liker = document.getElementById(`like${i}`)
-    liker.addEventListener("click", function(){
-        console.log(likes)
-        likes += 1
-        console.log("you clicked!")
-        console.log(likes)
-    })
-    }
- 
+    postData.map((aSinglePost) => { 
+        
+        const {name, username, location, avatar, post, comment, likes, uuid, isLiked} = aSinglePost
+        
+        let likeImgSrc = 'images/icon-heart.png'
+        if (isLiked){
+            likeImgSrc = "images/icon-heart-red.png"
+        }
+
+        postFeedHTML.push(`<div> 
+                    <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
+                            <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
+                                <img class="user-avatar" src="${avatar}"> 
+                                <div class="user-info-container">
+                                    <p class="bold-text">${name}</p>
+                                    <p>${location}</p>
+                                 </div>  
+                            </div>
+                            <img src="${post}">
+                            <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
+                                <div class="icon-container">
+                                    <img class="icon" data-like="${uuid}" src="${likeImgSrc}" >
+                                    <img class="icon" data-comment="${uuid}"  src="images/icon-comment.png">
+                                    <img class="icon" data-dm="${uuid}" src="images/icon-dm.png">
+                                </div>
+                                <p class="bold-text">${likes} likes</p>
+                                <div>
+                                    <p class="comment"><span class="bold-text">${username}</span> ${comment}</p>
+                                </div>
+                            </div> <!-- END OF POST-FOOTER -->
+                        </section> <!--END OF POST SECTION -->  
+                </div>`)  
+    }) 
+
+    postFeedHTML.push(`<div class="floating-header-footer-spacing"></div>`)
+    postFeed.innerHTML = postFeedHTML.join('')    
 }
 
-displayFeed(posts)
+function handleLikeClick(postID){
+    
+    posts.forEach(function(post){
+        if (post.uuid === postID){
+            document.getElementById
+            post.isLiked = !post.isLiked
+        }
+        getFeed(posts)
+    })
+}        
+        
+ 
 
-/*
-            <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
-                <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
-                    <img class="user-avatar" src="images/avatar-vangogh.jpg"> 
-                    <div class="user-info-container">
-                        <p class="bold-text">Vincent van Gogh</p>
-                        <p>Zundert, Netherlands</p>
-                    </div>  
-                </div>
-                <img src="images/post-vangogh.jpg">
-                <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
-                    <div class="icon-container">
-                        <img class="icon" src="images/icon-heart.png">
-                        <img class="icon" src="images/icon-comment.png">
-                        <img class="icon" src="images/icon-dm.png">
-                    </div>
-                    <p class="bold-text">21 likes</p>
-                    <div>
-                        <p><span class="bold-text">vincey1853</span> just took a few mushrooms lol</p>
-                    </div>
-                </div> <!-- END OF POST-FOOTER -->
-            </section> <!--END OF POST SECTION -->
 
-*/
+getFeed(posts)
