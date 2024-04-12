@@ -150,7 +150,7 @@ html, body {
     z-index: 900;
     left: 0;
     right: 0;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     border: 1px none #67595e;
     border-radius: 20px 20px 0px 0px;
@@ -158,6 +158,8 @@ html, body {
     height: 490px;
     background-color: #FFFFFF;
     overflow-y: auto;
+    gap: 1.5em;
+    padding-top: 3.5em;
 }
   
 
@@ -175,16 +177,20 @@ html, body {
 }
 
 #comments-modal-inner {
-    width: 375px;
-    height: 80%;
+    /* width: 375px; */
+    /* height: 80%; */
     padding: 0 20px;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
 }
 
 .reply-inner{
     display: flex;
     align-items: flex-start;
     gap: 10px;
+    height: 100%;
+    line-height:normal;
 }
 
 .overlay {
