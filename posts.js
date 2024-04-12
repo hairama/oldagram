@@ -115,7 +115,7 @@ export const posts = [
         post: "images/post-kahlo.jpg",
         postText: `My post carries with it the message of pain`,
         likes: 1,
-        uuid: "a2909207-c30a-4dc3-aec4-87ef06ce6d55",
+        uuid: "f3495f3b-44f3-4f0c-8203-4b9a90f34257",
         replies: [
             {
                 handle: `gus1819`,
