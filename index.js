@@ -18,10 +18,10 @@ document.addEventListener("click", function(e) {
         handleLikeClick(e.target.dataset.like)
     }
     if(e.target.dataset.commentBtn){
-        console.log(e.target.dataset.commentBtn)
+        openCommentModal(e.target.dataset.commentBtn)
     }
     if(e.target.dataset.dm){
-        console.log(e.target.dataset.dm)
+        // console.log(e.target.dataset.dm)
     }
     if(e.target.dataset.viewPostComments) {
         openCommentModal(e.target.dataset.viewPostComments)
@@ -35,14 +35,6 @@ document.addEventListener("dblclick", function(e) {
         console.log(e.target.dataset.photo)
     }
 })
-
-// fileInput.addEventListener('change', function() {
-//     // Display the selected file name (optional)
-//     const selectedFileName = document.getElementById('selectedFileName');
-//     selectedFileName.textContent = this.files[0].name;
-    
-//     // Here you can perform further actions with the selected file, like uploading it to a server or displaying it on the page
-// })
 
 function getFeed(postData) {
     
