@@ -60,8 +60,31 @@ export const posts = [
             {
                 handle: `@StackOverflower ☣️`,
                 profilePic: `images/avatar-vangogh.jpg`,
+<<<<<<< Updated upstream
                 replyText: `Go.`,
             },
+=======
+                replyText: `@PermaBorg While AI might have its uses, nothing beats the uniqueness and emotion we bring to our work. Keep inspiring us, Per! ✨🖌️`,
+                },
+                {
+                handle: `PermaBorg`,
+                profilePic: `images/avatar-borgen.png`,
+                replyText: `@gus1819 @jd1735 @vincey1853 You guys are absolutely right! We're artists, not algorithms. Let's keep pushing boundaries and proving them wrong! 💪🎨`,
+                }
+        ],
+        isLiked: false
+    },
+        {
+        name: "Frida Kahlo",
+        username: "FridaLaCasaAzul",
+        location: "Coyoacán, Mexico",
+        avatar: "images/avatar-kahlo.jpg",
+        post: "images/post-kahlo.jpg",
+        postText: `My post carries with it the message of pain`,
+        likes: 1,
+        uuid: "f3495f3b-44f3-4f0c-8203-4b9a90f34257",
+        replies: [
+>>>>>>> Stashed changes
             {
                 handle: `@StackOverflower ☣️`,
                 profilePic: `images/avatar-vangogh.jpg`,
