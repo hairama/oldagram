@@ -7,10 +7,10 @@ const postFeed = document.getElementById("post-holder")
 const addPostBtn = document.getElementById("add-post-btn")
 const fileInput = document.getElementById("file-input")
 const overlay = document.getElementById("overlay")
+const commentsModal = document.getElementById("comments-modal")
 
 
 // EVENT LISTENERS
-
 document.addEventListener("click", function(e) {  
     if(e.target.dataset.like){
         handleLikeClick(e.target.dataset.like)
@@ -18,17 +18,18 @@ document.addEventListener("click", function(e) {
     if(e.target.dataset.commentBtn){
         openCommentModal(e.target.dataset.commentBtn)
     }
-    if(e.target.dataset.dm){
-        // will add functionality here later
-    }
     if(e.target.dataset.viewPostComments) {
         openCommentModal(e.target.dataset.viewPostComments)
+    }
+    if(e.target.dataset.dm){
+        // might add functionality here later
     }
     if(e.target.dataset.closeCommentsModal || e.target.dataset.overlay) {
         closeCommentModal()
     }
     if(e.target.dataset.addPostBtn) {
         fileInput.click()
+        // will add image upload functionality here later
     }
 })
 
@@ -40,13 +41,12 @@ document.addEventListener("dblclick", function(e) {
 
 
 // FUNCTIONS
-function getFeed(postData) {
-    
+function renderFeed() {
     const postFeedHTML = []
+    
     postFeedHTML.push(`<div class="floating-header-footer-spacing"></div>`)
     
-    postData.map((aSinglePost) => { 
-        
+    posts.map((aSinglePost) => { 
         const {name, username, location, avatar, post, postText, likes, replies, uuid, isLiked} = aSinglePost
         
         let likeImgSrc = 'images/icon-heart.png'
@@ -62,7 +62,8 @@ function getFeed(postData) {
             }
 
 
-        postFeedHTML.push(`<div> 
+        postFeedHTML.push(`
+                <div> 
                     <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
                             <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
                                 <img class="user-avatar" src="${avatar}"> 
@@ -101,66 +102,48 @@ function handleLikeClick(postID){
             post.isLiked ? post.likes -- : post.likes ++;
             post.isLiked = !post.isLiked
         }
-        getFeed(posts)
+        renderFeed(posts)
     })
 }        
         
 function openCommentModal(postID){
-    document.getElementById("comments-modal").style.display = "flex"
+    commentsModal.style.display = "flex"
     
-    
-
     document.body.style.overflow = 'hidden'
-    overlay.style.display = 'block'
+    overlay.style.display = 'block'  
     
-    let commentModalHTML = []
-        
-        posts.forEach(function(post) {
-            if (post.uuid === postID) {
-                
-                commentModalHTML = post.replies.map(function(reply) {
-        
-                    return  `
-                                <div class="post-reply">
-                                <div class="reply-inner">
-                                    <img src="${reply.profilePic}" class="user-avatar">
-                                        <div class="handle-and-comment-containter">
-                                            <p class="bold-text">${reply.handle}</p>
-                                            <p class="reply-text">${reply.replyText}</p>
-                                        </div>
-                                    </div>
-                            </div>
-                            `  
-                }).join('')
-            }
-        
-        // `
-        // <div class="reply-inner">
-        //     <p>${reply.replyText}</p>
-        // </div>` 
-
-    document.getElementById("comments-modal-inner").innerHTML = commentModalHTML
-    })
-
-    
-    /*
-        locate the post with postID in the posts array
-        iterate through the replies array and generate html to render the comment modal
-        unhide the comment modal
-        
-        on the comment modal
-        display a list of comments
-        user can scroll through comments
-        
-        user can add a comment
-        user can close the modal
-    */
+    renderComments(postID)  
 }       
 
+function renderComments(postID) {
+    let commentModalHTML = []
+
+    posts.forEach(function(post) {
+        if (post.uuid === postID) {
+            
+            commentModalHTML = post.replies.map(function(reply) {
+    
+                return  `
+                            <div class="post-reply">
+                            <div class="reply-inner">
+                                <img src="${reply.profilePic}" class="user-avatar">
+                                    <div class="handle-and-comment-containter">
+                                        <p class="bold-text">${reply.handle}</p>
+                                        <p class="reply-text">${reply.replyText}</p>
+                                    </div>
+                                </div>
+                        </div>
+                        `  
+            }).join('')
+        }
+    })
+    document.getElementById("comments-modal-inner").innerHTML = commentModalHTML
+}
+
 function closeCommentModal() {
-    document.getElementById("comments-modal").style.display = "none"
+    commentsModal.style.display = "none"
     document.body.style.overflow = ''
     overlay.style.display = 'none'
 }
 
-getFeed(posts)
+renderFeed()

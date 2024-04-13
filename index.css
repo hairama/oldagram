@@ -131,6 +131,8 @@ html, body {
     width: 100%;
     max-width: 375px;
     z-index: 1;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 -.8px .25px #C6C6C650;
 }
 
 .input-btn {
