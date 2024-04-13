@@ -1,19 +1,17 @@
+// IMPORT
 import { posts } from "/posts.js"
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 
+// ELEMENTS
 const postFeed = document.getElementById("post-holder")
 const addPostBtn = document.getElementById("add-post-btn")
 const fileInput = document.getElementById("file-input")
-const overlay = document.getElementById('overlay')
+const overlay = document.getElementById("overlay")
 
 
+// EVENT LISTENERS
 
-addPostBtn.addEventListener("click", function(){
-    fileInput.click()
-})
-
-document.addEventListener("click", function(e) {
-    
+document.addEventListener("click", function(e) {  
     if(e.target.dataset.like){
         handleLikeClick(e.target.dataset.like)
     }
@@ -21,21 +19,27 @@ document.addEventListener("click", function(e) {
         openCommentModal(e.target.dataset.commentBtn)
     }
     if(e.target.dataset.dm){
-        // console.log(e.target.dataset.dm)
+        // will add functionality here later
     }
     if(e.target.dataset.viewPostComments) {
         openCommentModal(e.target.dataset.viewPostComments)
     }
-
+    if(e.target.dataset.closeCommentsModal || e.target.dataset.overlay) {
+        closeCommentModal()
+    }
+    if(e.target.dataset.addPostBtn) {
+        fileInput.click()
+    }
 })
 
 document.addEventListener("dblclick", function(e) {
     if(e.target.dataset.photo) {
         handleLikeClick(e.target.dataset.photo)
-        console.log(e.target.dataset.photo)
     }
 })
 
+
+// FUNCTIONS
 function getFeed(postData) {
     
     const postFeedHTML = []
@@ -94,7 +98,7 @@ function handleLikeClick(postID){
     
     posts.forEach(function(post){
         if (post.uuid === postID){
-            document.getElementById
+            post.isLiked ? post.likes -- : post.likes ++;
             post.isLiked = !post.isLiked
         }
         getFeed(posts)
@@ -104,16 +108,10 @@ function handleLikeClick(postID){
 function openCommentModal(postID){
     document.getElementById("comments-modal").style.display = "flex"
     
-    document.getElementById("comments-modal-close-btn").addEventListener("click", function(){
-        document.getElementById("comments-modal").style.display = "none"
-        document.body.style.overflow = ''
-        overlay.style.display = 'none'
-    })
+    
 
     document.body.style.overflow = 'hidden'
     overlay.style.display = 'block'
-
-    
     
     let commentModalHTML = []
         
@@ -159,5 +157,10 @@ function openCommentModal(postID){
     */
 }       
 
+function closeCommentModal() {
+    document.getElementById("comments-modal").style.display = "none"
+    document.body.style.overflow = ''
+    overlay.style.display = 'none'
+}
 
 getFeed(posts)
