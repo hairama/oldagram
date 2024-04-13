@@ -37,8 +37,9 @@ document.addEventListener("dblclick", function(e) {
     if(e.target.dataset.photo) {
         handleLikeClick(e.target.dataset.photo)
     }
+    if(e.target.dataset.darkMode)
+    document.body.classList.toggle("dark-mode")
 })
-
 
 // FUNCTIONS
 function renderFeed() {
@@ -67,7 +68,7 @@ function renderFeed() {
                     <section class="post"> <!-- CONTAINS AN INSTANCE OF A POST -->
                             <div class="post-header"> <!-- CONTAINS THE HEADER OF A POST -->
                                 <img class="user-avatar" src="${avatar}"> 
-                                <div class="user-info-container">
+                                <div>
                                     <p class="bold-text">${name}</p>
                                     <p>${location}</p>
                                  </div>  
@@ -99,7 +100,9 @@ function handleLikeClick(postID){
     
     posts.forEach(function(post){
         if (post.uuid === postID){
+            //add or remove likes
             post.isLiked ? post.likes -- : post.likes ++;
+            //toggle isLiked status
             post.isLiked = !post.isLiked
         }
         renderFeed(posts)
@@ -108,10 +111,8 @@ function handleLikeClick(postID){
         
 function openCommentModal(postID){
     commentsModal.style.display = "flex"
-    
     document.body.style.overflow = 'hidden'
     overlay.style.display = 'block'  
-    
     renderComments(postID)  
 }       
 
@@ -127,7 +128,7 @@ function renderComments(postID) {
                             <div class="post-reply">
                             <div class="reply-inner">
                                 <img src="${reply.profilePic}" class="user-avatar">
-                                    <div class="handle-and-comment-containter">
+                                    <div class="handle-and-comment-container">
                                         <p class="bold-text">${reply.handle}</p>
                                         <p class="reply-text">${reply.replyText}</p>
                                     </div>

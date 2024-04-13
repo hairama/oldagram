@@ -1,11 +1,49 @@
-html, body {
-    margin: 0;
+:root {
+    --background-color: #EDEDED;
+    --ui-background-color: #FFFFFF; 
+    --width: 375px;
+    --gray: #555555;
+    --font-color: black;
+}
+
+body.dark-mode {
+    --background-color: #282828;
+    --ui-background-color: #4B4B4B; 
+    --width: 375px;
+    --gray: #979797;
+    --font-color: white;
+}
+html, body, .whole-app, .app-header-container, .post-reply {
+    margin: 0 auto;
     padding: 0;
+
+}
+
+html, body {
     font-size: 14px;
-    background-color: #EDEDED;
+    background-color: var(--background-color);
     font-family: "Source Sans 3", sans-serif;
     line-height: 0.2;
-    user-select: none;
+    color: var(--font-color)
+}
+
+.whole-app, 
+.app-header-container, 
+.post,
+.post-header,
+.post-footer,
+.icon-container,
+.app-footer-container,
+.reply-inner,
+.handle-and-comment-containter {
+    display: flex;
+}
+
+.whole-app,
+.post,
+.post-footer,
+.handle-and-comment-container {
+    flex-direction: column;
 }
 
 .bold-text {
@@ -18,28 +56,20 @@ html, body {
 
 /* a container for the entire app */
 .whole-app { 
-    display: flex;
-    flex-direction: column;
-    max-width: 375px;
-    margin: 0 auto;
-    padding: 0px;
+    max-width: var(--width);
     position: relative;
 }
 
 /* the container for logo, user avatar */
 .app-header-container {
     border-bottom: 2px solid #C6C6C6;
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 100px;
-    background-color: #FFFFFF;
+    background-color: var(--ui-background-color);
     position: fixed;
     height: 67px;
     width: 100%;
-    max-width: 375px;
+    max-width: var(--width);
     z-index: 1;
 }
 
@@ -57,47 +87,39 @@ html, body {
 
 /* the container for an entire post instance */
 .post {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFFFFF;
+    background-color: var(--ui-background-color);
     margin-bottom: 25px;
     border: none;
 }
 
 /* the header of a post including poster avatar, name, location */
 .post-header {
-    display: flex;
     align-items: center;
     padding: 10px;
-}
-
-/*container for poster name & location */
-.user-info-container {
-    padding-left: -5px;
 }
 
 /* the footer of a post */
 .post-footer {
     padding: 12px;
-    display: flex;
-    flex-direction: column;
 }
 
 .icon-container {
-    display: flex;
     justify-content: space-between;
     height: 23px;
     width: 82px;
     margin-bottom: 3px;
 }
 
+.icon, .reply-preview, .comments-modal-close-btn {
+    cursor: pointer;
+}
+
 .icon {
     height: 100%;
-    fill: pink;
 }
 
 .icon:hover {
-    filter: drop-shadow(0px 0px 2px);
+    opacity: 40%;
 }
 
 .post-text {
@@ -106,7 +128,7 @@ html, body {
 }
 
 .reply-preview {
-    color: #555555;
+    color: var(--gray);
     line-height: 1.1;
     margin-top: -9px;
     margin-bottom: -15px;
@@ -119,17 +141,16 @@ html, body {
 
 .app-footer-container {
     border-bottom: 2px solid #C6C6C6;
-    display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 30px 0px;
     margin: 0px;
-    background-color: #FFFFFF;
+    background-color: var(--ui-background-color);
     position: fixed;
     bottom: 0px;
     min-height: 67x;
     width: 100%;
-    max-width: 375px;
+    max-width: var(--width);
     z-index: 1;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 -.8px .25px #C6C6C650;
@@ -137,11 +158,6 @@ html, body {
 
 .input-btn {
     opacity: 0%;
-}
-
-.liked{
-    filter: invert(10%) sepia(98%) saturate(7004%) hue-rotate(1deg) brightness(97%) contrast(108%);
-    color: red;
 }
 
 .comments-modal{
@@ -152,16 +168,17 @@ html, body {
     z-index: 900;
     left: 0;
     right: 0;
-    align-items: start;
-    justify-content: center;
-    border: 1px none #67595e;
     border-radius: 20px 20px 0px 0px;
-    width: 375px;
+    width: var(--width);
     height: 490px;
-    background-color: #FFFFFF;
+    background-color: var(--ui-background-color);
     overflow-y: auto;
-    gap: 1.5em;
     padding-top: 3.5em;
+}
+
+#comments-modal-inner {
+    margin: 0 1.5em;
+    padding: 0;
 }
   
 
@@ -170,37 +187,20 @@ html, body {
     top: 2%;
     right: 2%;
     background-color: transparent;
-    border: 2px solid #555;
-    color: #555;
+    border: 1.5px solid var(--gray);
+    color: var(--gray);
     border-radius: 50%;
     padding: 2px 6px;
     font-size: 14px;
-    cursor: pointer;
-}
-
-#comments-modal-inner {
-    /* width: 375px; */
-    /* height: 80%; */
-    /* padding: 0 .5em 0 .5em; */
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
 }
 
 .reply-inner {
-    display: flex;
     height: 100%;
     line-height:normal;
-    padding: 0 1em;
+    padding: .5em 0;
 }
 
-.handle-and-comment-containter {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-}
-
-.reply-text, .handle-and-comment-containter > .bold-text {
+.reply-text, .handle-and-comment-container > .bold-text {
     margin: 0;
 }
 
