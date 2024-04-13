@@ -126,8 +126,8 @@ function openCommentModal(postID){
                                 <div class="post-reply">
                                 <div class="reply-inner">
                                     <img src="${reply.profilePic}" class="user-avatar">
-                                        <div>
-                                            <p class="handle">${reply.handle}</p>
+                                        <div class="handle-and-comment-containter">
+                                            <p class="bold-text">${reply.handle}</p>
                                             <p class="reply-text">${reply.replyText}</p>
                                         </div>
                                     </div>

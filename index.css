@@ -96,9 +96,9 @@ html, body {
     fill: pink;
 }
 
-/* .icon:hover {
+.icon:hover {
     filter: drop-shadow(0px 0px 2px);
-} */
+}
 
 .post-text {
     line-height: 1.1;
@@ -185,12 +185,20 @@ html, body {
     gap: 1.5em;
 }
 
-.reply-inner{
+.reply-inner {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
     height: 100%;
     line-height:normal;
+}
+
+.handle-and-comment-containter {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.reply-text, .handle-and-comment-containter > .bold-text {
+    margin: 0;
 }
 
 .overlay {
