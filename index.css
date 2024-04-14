@@ -4,6 +4,7 @@
     --width: 375px;
     --gray: #555555;
     --font-color: black;
+    --light-gray: #C6C6C6;
 }
 
 body.dark-mode {
@@ -11,7 +12,8 @@ body.dark-mode {
     --ui-background-color: #4B4B4B; 
     --width: 375px;
     --gray: #979797;
-    --font-color: white;
+    --font-color: #EFEFEF;
+    --light-gray: #363636;
 }
 html, body, .whole-app, .app-header-container, .post-reply {
     margin: 0 auto;
@@ -62,7 +64,7 @@ html, body {
 
 /* the container for logo, user avatar */
 .app-header-container {
-    border-bottom: 2px solid #C6C6C6;
+    border-bottom: 2px solid var(--light-gray);
     justify-content: space-between;
     align-items: center;
     background-color: var(--ui-background-color);
@@ -76,6 +78,10 @@ html, body {
 .logo-image {
     height: 90%;
     margin-left: 15px;
+}
+
+.logo-image.dark-mode {
+    filter: invert(.706);    
 }
 
 .user-avatar {
@@ -122,6 +128,14 @@ html, body {
     opacity: 40%;
 }
 
+.icon.dark-mode {
+    filter: invert(.9);    
+}
+
+.red-heart {
+    filter: hue-rotate(10deg);
+}
+
 .post-text {
     line-height: 1.1;
     margin-top: 3px;
@@ -140,7 +154,6 @@ html, body {
 }
 
 .app-footer-container {
-    border-bottom: 2px solid #C6C6C6;
     justify-content: space-around;
     align-items: center;
     padding: 30px 0px;
@@ -153,7 +166,7 @@ html, body {
     max-width: var(--width);
     z-index: 1;
     border-radius: 5px 5px 0 0;
-    box-shadow: 0 -.8px .25px #C6C6C650;
+    box-shadow: 0 -.8px .25px var(--light-gray);
 }
 
 .input-btn {

@@ -9,6 +9,8 @@ const fileInput = document.getElementById("file-input")
 const overlay = document.getElementById("overlay")
 const commentsModal = document.getElementById("comments-modal")
 
+let darkMode = false
+
 
 // EVENT LISTENERS
 document.addEventListener("click", function(e) {  
@@ -36,9 +38,19 @@ document.addEventListener("click", function(e) {
 document.addEventListener("dblclick", function(e) {
     if(e.target.dataset.photo) {
         handleLikeClick(e.target.dataset.photo)
-    }
-    if(e.target.dataset.darkMode)
-    document.body.classList.toggle("dark-mode")
+    } else
+    if(e.target.dataset.darkMode) {
+        darkMode = !darkMode
+        document.body.classList.toggle("dark-mode")
+        
+        const logoImage = document.querySelector('.logo-image')
+        logoImage.classList.toggle('dark-mode')
+        
+        const icons = document.getElementsByClassName('icon')
+        for (let icon of icons) {
+            icon.classList.toggle('dark-mode');
+        }
+    }        
 })
 
 // FUNCTIONS
@@ -50,9 +62,10 @@ function renderFeed() {
     posts.map((aSinglePost) => { 
         const {name, username, location, avatar, post, postText, likes, replies, uuid, isLiked} = aSinglePost
         
+        let redHeart = '' 
         let likeImgSrc = 'images/icon-heart.png'
             if (isLiked){
-                likeImgSrc = "images/icon-heart-red.png"
+                redHeart = 'red-heart'
             }
 
         let repliesPreviewHtml = ''
@@ -62,6 +75,10 @@ function renderFeed() {
                 repliesPreviewHtml = `View 1 comment`
             }
 
+        let iconDarkMode = ''
+        if (darkMode) {
+            let iconDarkMode = 'dark-mode'
+        } 
 
         postFeedHTML.push(`
                 <div> 
@@ -76,9 +93,9 @@ function renderFeed() {
                             <img src="${post}" data-photo="${uuid}">
                             <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
                                 <div class="icon-container">
-                                    <img class="icon" data-like="${uuid}" src="${likeImgSrc}" >
-                                    <img class="icon" data-comment-btn="${uuid}"  src="images/icon-comment.png">
-                                    <img class="icon" data-dm="${uuid}" src="images/icon-dm.png">
+                                    <img class="icon ${redHeart} ${iconDarkMode}" data-like="${uuid}" src="${likeImgSrc}" >
+                                    <img class="icon ${iconDarkMode}" data-comment-btn="${uuid}"  src="images/icon-comment.png">
+                                    <img class="icon ${iconDarkMode}" data-dm="${uuid}" src="images/icon-dm.png">
                                 </div>
                                 <p class="bold-text like-count">${likes} likes</p>
                                 <div>
@@ -105,7 +122,7 @@ function handleLikeClick(postID){
             //toggle isLiked status
             post.isLiked = !post.isLiked
         }
-        renderFeed(posts)
+        renderFeed()
     })
 }        
         
