@@ -11,7 +11,6 @@ const commentsModal = document.getElementById("comments-modal")
 
 let darkMode = false
 
-
 // EVENT LISTENERS
 document.addEventListener("click", function(e) {  
     if(e.target.dataset.like){
@@ -39,7 +38,7 @@ document.addEventListener("dblclick", function(e) {
     if (e.target.dataset.photo) {
         handleLikeClick(e.target.dataset.photo)
     } else if (e.target.dataset.darkMode) {
-        toggleDarkMode();
+        toggleDarkMode()
     }
 })
 
@@ -49,9 +48,15 @@ function renderFeed() {
     
     postFeedHTML.push(`<div class="floating-header-footer-spacing"></div>`)
     
+    let iconDarkMode = ''
+        if (darkMode) {
+            iconDarkMode = 'dark-mode'
+        } 
+    
     posts.map((aSinglePost) => { 
         const {name, username, location, avatar, post, postText, likes, replies, uuid, isLiked} = aSinglePost
 
+        // Generate 'View comments' text
         let repliesPreviewHtml = ''
             if (replies.length > 1) {
                 repliesPreviewHtml = `View all ${replies.length} comments`
@@ -59,13 +64,8 @@ function renderFeed() {
                 repliesPreviewHtml = `View 1 comment`
             }
 
-        let iconDarkMode = ''
-        if (darkMode) {
-            iconDarkMode = 'dark-mode'
-        } 
-
+        // If the post is liked, add the 'red-heart' class 
         let redHeart = '' 
-        let likeImgSrc = 'images/icon-heart.png'
             if (isLiked){
                 redHeart = 'red-heart'
             }
@@ -83,7 +83,7 @@ function renderFeed() {
                             <img src="${post}" data-photo="${uuid}">
                             <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
                                 <div class="icon-container">
-                                    <img class="icon ${redHeart} ${iconDarkMode}" data-like="${uuid}" src="${likeImgSrc}">
+                                    <img class="icon ${redHeart} ${iconDarkMode}" data-like="${uuid}" src="images/icon-heart.png">
                                     <img class="icon ${iconDarkMode}" data-comment-btn="${uuid}"  src="images/icon-comment.png">
                                     <img class="icon ${iconDarkMode}" data-dm="${uuid}" src="images/icon-dm.png">
                                 </div>
@@ -107,7 +107,7 @@ function handleLikeClick(postID){
     
     posts.forEach(function(post){
         if (post.uuid === postID){
-            //add or remove likes
+            //add or remove like
             post.isLiked ? post.likes -- : post.likes ++;
             //toggle isLiked status
             post.isLiked = !post.isLiked
