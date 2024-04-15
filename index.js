@@ -36,21 +36,11 @@ document.addEventListener("click", function(e) {
 })
 
 document.addEventListener("dblclick", function(e) {
-    if(e.target.dataset.photo) {
+    if (e.target.dataset.photo) {
         handleLikeClick(e.target.dataset.photo)
-    } else
-    if(e.target.dataset.darkMode) {
-        darkMode = !darkMode
-        document.body.classList.toggle("dark-mode")
-        
-        const logoImage = document.querySelector('.logo-image')
-        logoImage.classList.toggle('dark-mode')
-        
-        const icons = document.getElementsByClassName('icon')
-        for (let icon of icons) {
-            icon.classList.toggle('dark-mode');
-        }
-    }        
+    } else if (e.target.dataset.darkMode) {
+        toggleDarkMode();
+    }
 })
 
 // FUNCTIONS
@@ -61,12 +51,6 @@ function renderFeed() {
     
     posts.map((aSinglePost) => { 
         const {name, username, location, avatar, post, postText, likes, replies, uuid, isLiked} = aSinglePost
-        
-        let redHeart = '' 
-        let likeImgSrc = 'images/icon-heart.png'
-            if (isLiked){
-                redHeart = 'red-heart'
-            }
 
         let repliesPreviewHtml = ''
             if (replies.length > 1) {
@@ -77,8 +61,14 @@ function renderFeed() {
 
         let iconDarkMode = ''
         if (darkMode) {
-            let iconDarkMode = 'dark-mode'
+            iconDarkMode = 'dark-mode'
         } 
+
+        let redHeart = '' 
+        let likeImgSrc = 'images/icon-heart.png'
+            if (isLiked){
+                redHeart = 'red-heart'
+            }
 
         postFeedHTML.push(`
                 <div> 
@@ -93,7 +83,7 @@ function renderFeed() {
                             <img src="${post}" data-photo="${uuid}">
                             <div class="post-footer"> <!-- CONTAINS THE FOOTER OF A POST -->
                                 <div class="icon-container">
-                                    <img class="icon ${redHeart} ${iconDarkMode}" data-like="${uuid}" src="${likeImgSrc}" >
+                                    <img class="icon ${redHeart} ${iconDarkMode}" data-like="${uuid}" src="${likeImgSrc}">
                                     <img class="icon ${iconDarkMode}" data-comment-btn="${uuid}"  src="images/icon-comment.png">
                                     <img class="icon ${iconDarkMode}" data-dm="${uuid}" src="images/icon-dm.png">
                                 </div>
@@ -162,6 +152,31 @@ function closeCommentModal() {
     commentsModal.style.display = "none"
     document.body.style.overflow = ''
     overlay.style.display = 'none'
+}
+
+function toggleDarkMode() {
+    darkMode = !darkMode;
+    document.body.classList.toggle("dark-mode")
+
+    // Apply dark-mode to "JiffyPic" logo Image
+    const logoImage = document.querySelector('.logo-image')
+    logoImage.classList.toggle('dark-mode')
+
+    // Apply dark-mode to icons
+    const icons = document.getElementsByClassName('icon')
+    for (let icon of icons) {
+        icon.classList.toggle('dark-mode')
+    }
+
+    // Update the heart icon based on dark mode status
+    const redHearts = document.getElementsByClassName('red-heart')
+    for (let heart of redHearts) {
+        if (darkMode) {
+            heart.classList.add('dark-mode')
+        } else {
+            heart.classList.remove('dark-mode');
+    }
+}
 }
 
 renderFeed()
