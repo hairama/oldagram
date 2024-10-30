@@ -49,13 +49,17 @@ JiffyPic simulates a social media platform where users can view posts with photo
 
 🔳 **Importing constants from JS files:** I used `import` to manage icons and data from separate files, keeping the code modular and maintainable.
 
-🔳 **Defer in JavaScript:** I used the `defer` attribute to ensure the script runs after the DOM is fully loaded.
+🔳 **CSS filter declaration:** After exploring various methods to change icon colors (e.g. when someone 'likes' a photo) I chose the `filter` property with calculated values to achieve this effect.
 
-🔳 **Focus-visible:** I implemented accessible styles to improve the visibility of focused elements, but only for keyboard users.
+🔳 **Using overlays:** I wanted to emphasize the comment modal (as well as removing interactivity from the main app while it was open). To achieve this, I created a semi-transparent overlay between the modal and the main app page.   
 
-🔳 **Outline and accessibility:** I applied the outline attribute to maintain accessibility without compromising aesthetics, improving the experience for keyboard-dependent users.
+## **Future feature sets** 🔮
 
-🔳 **CSS transitions:** I added smooth transitions for hover and focus effects on the icons for a better user experience.
+🎯 **Ability to make new posts** Would involve Google Firebase integration, a new post UI
+
+🎯 **Ability to add comments** Let users add and like comments
+
+🎯 **Authentication** Allow users to log in
 
 ## *Resources* 🗃️
 
