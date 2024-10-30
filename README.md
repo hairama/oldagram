@@ -1,13 +1,13 @@
-# Oldagram - Solo Project
+# JiffyPic - Solo Project
 
 ## *Overview* 🧐
 This project is part of the **"Essential CSS Concepts"** module from the [**Frontend Career Path**](https://v2.scrimba.com/the-frontend-developer-career-path-c0j) course on [**Scrimba**](https://v2.scrimba.com/home).
 
-Oldagram simulates a social media platform where users can view posts with photos, comments, and likes. Semantic HTML, interactive CSS effects, and JavaScript were used to dynamically render the posts.
+JiffyPic simulates a social media platform where users can view posts with photos, comments, and likes. Semantic HTML, interactive CSS effects, and JavaScript were used to dynamically render the posts.
 
-![Oldagram](./assets/screenshot/sample.gif)
+![Oldagram](./oldagram-demo.gif)
 
-## *Requeriments* 📝
+## *Requirements* 📝
 
 ✅ ~~Create the first post.~~
 
@@ -19,19 +19,31 @@ Oldagram simulates a social media platform where users can view posts with photo
 
 ✅ ~~Use JavaScript to render out all three posts.~~
 
-❌ Increase the likes when double clicking the post.
+✅ ~~Increase the likes when double clicking the post.~~
+
+## *Going above and beyond* 🚀
+
+✅ ~~Fixed-position menu bar.~~
+
+✅ ~~Ability to view comments.~~
+
+✅ ~~Image upload button.~~
+
+✅ ~~Secret dark mode (double click profile pic).~~
+
+✅ ~~Progressive Web App (PWA).~~
 
 ## *Screenshots* 📷
 
-![Mobile](./assets/screenshot/mobile.avif)
+![Mobile screenshots](./images/jiffy-mobile.png)
 
-![Desktop](./assets/screenshot/desktop.avif)
+![Comment modal close-up](./images/comment-closeup.png)
 
 ## *Links* 🔗
 
-[Scrim code](https://v2.scrimba.com/s0cviu1jfb) 👈
+[Scrim code](https://v1.scrimba.com/scrim/cbmGqPfV) 👈
 
-[Live site](https://mendezpvi.github.io/fcp-oldagram/) 👈
+[Live site](https://jiffypic.netlify.app/) 👈
 
 ## *What I learned* 🤓
 
