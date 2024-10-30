@@ -60,9 +60,3 @@ JiffyPic simulates a social media platform where users can view posts with photo
 ## *Resources* 🗃️
 
 🗃️ [Frontend Career Path](https://v2.scrimba.com/the-frontend-developer-career-path-c0j) by Scrimba
-
-## *Author* 🔰
-
-✨ Frontend Mentor - [@medezpvi](https://www.frontendmentor.io/profile/mendezpvi)
-
-✨ X (formerly Twitter) - [@medezpvi](https://x.com/mendezpvi)
