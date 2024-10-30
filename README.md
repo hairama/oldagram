@@ -55,11 +55,11 @@ JiffyPic simulates a social media platform where users can view posts with photo
 
 ## **Future feature sets** 🔮
 
-🎯 **Ability to make new posts** Would involve Google Firebase integration, a new post UI
+🎯 **Ability to make new posts:** Would involve Google Firebase integration, a new post UI
 
-🎯 **Ability to add comments** Let users add and like comments
+🎯 **Ability to add comments:** Let users add and like comments
 
-🎯 **Authentication** Allow users to log in
+🎯 **Authentication:** Allow users to log in
 
 ## *Resources* 🗃️
 
